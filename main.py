@@ -46,3 +46,4 @@ assert FLAGS.lr > 0, 'lr 必须大于0'
 assert FLAGS.optimizer in ['adam', 'sgd', 'adagrad'], '优化器必须在adam, sgd, adagrad'
 pass
 pass
+
