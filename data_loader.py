@@ -111,7 +111,7 @@ def prepare_dataset(sentences, word_to_id, tag_to_id, train=True):
     data = []
     for s in sentences:
         word_list = [w[0] for w in s]
-        word_id_list = [word_to_id[x if x in word_list else '<UNK>'] for x in word_list]
+        word_id_list = [word_to_id[x if x in word_to_id else '<UNK>'] for x in word_list]
         segs = data_utils.get_seg_features("".join(word_list))
         if train:
             word_index_list = [tag_to_id[w[-1]] for w in s]
@@ -129,4 +129,4 @@ if __name__ == "__main__":
     _, word_to_id, id_to_word = word_mapping(sentences)
     _, tag_to_id, id_to_tag = tag_mapping(sentences)
     dev_data = prepare_dataset(sentences, word_to_id, tag_to_id)
-    data_utils.BatchManager(dev_data,120)
+    data_utils.BatchManager(dev_data, 120)
